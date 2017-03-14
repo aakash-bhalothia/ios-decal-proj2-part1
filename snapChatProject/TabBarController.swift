@@ -9,12 +9,15 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-
+    
+    var selectedImage:UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.barTintColor = UIColor.yellow
         self.tabBar.tintColor = UIColor.white
         self.tabBar.unselectedItemTintColor = UIColor.gray
+        
     }
 
     override func didReceiveMemoryWarning() {

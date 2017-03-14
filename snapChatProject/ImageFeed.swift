@@ -11,6 +11,11 @@ import UIKit
 
 // This is the only line of code you should be modifying
 var threads: [String: [UIImage]] = ["Memes": [], "Dog Spots": [], "Random": []]
+var readImages: [String: [Bool]] = ["Memes": [], "Dog Spots": [], "Random": []]
+//
+
+// This is the only line of code you should be modifying
+// var threads: [String: UIImage] = ["Memes": [], "Dog Spots": [], "Random": []]
 //
 
 let threadNames = ["Memes", "Dog Spots", "Random"]

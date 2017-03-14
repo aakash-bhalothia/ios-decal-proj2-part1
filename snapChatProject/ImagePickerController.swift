@@ -10,6 +10,10 @@ import UIKit
 
 class ImagePickerController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    var selected:UIImage?
+    
+    @IBAction func unwindToPicker(segue: UIStoryboardSegue) {}
+    
     @IBOutlet var imageCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +25,23 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
         super.didReceiveMemoryWarning()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "PickerToPost" {
+                if let dest = segue.destination as? ImagePostViewController {
+                    dest.imageSelected = selected
+                }
+            }
+        }
+    }
 
     func selectImage(_ image: UIImage) {
         //The image being selected is passed in as "image".
+        selected = image
+        performSegue(withIdentifier: "PickerToPost", sender:nil)
+        
     }
-    
-    
+
     
     //DON'T MODIFY CODE HERE AND BELOW!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
